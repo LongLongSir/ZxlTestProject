@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mybatis-properties.properties" />
+
+    <typeAliases>
+        <!--<typeAlias type="com.myspringboot.studyspringboot.mybatis.pojo.Student" alias="testAlias" />-->
+        <package name="com.myspringboot.studyspringboot.mybatis.pojo"  />
+    </typeAliases>
+    <plugins>
+        <plugin interceptor="com.myspringboot.studyspringboot.mybatis.plugin.SqlPrintInterceptor"></plugin>
+    </plugins>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/StudentMapper.xml" />
+        <mapper resource="mapper/AccountMapper.xml"/>
+        <mapper resource="mapper/StudentSpringMapper.xml"/>
+        <!--<mapper class="com.myspringboot.studyspringboot.mybatis.mapper.StudentDao" />-->
+    </mappers>
+
+</configuration>

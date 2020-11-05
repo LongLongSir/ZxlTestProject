@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspringboot.studyspringboot.mybatis.mapper.StudentSpringDao">
+
+
+    <update id="updateStudentById" >
+        update student set sname=#{sname},password=#{password},sage=#{sage} where sid=#{sid}
+    </update>
+</mapper>
