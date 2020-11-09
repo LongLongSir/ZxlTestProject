@@ -1,6 +1,7 @@
-package com.differ.zxl.jdbc;
+package com.differ.zxl.mybatisjdbc;
 
-import com.differ.zxl.jdbc.dao.ZxlDao;
+import com.differ.zxl.mybatisjdbc.dao.ZxlDao;
+import com.differ.zxl.mybatisjdbc.plugin.SqlPrintInterceptor;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
@@ -21,6 +22,7 @@ public class MybatisMain {
         String resource="mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(inputStream);
+        //factory.getConfiguration().addInterceptor(new SqlPrintInterceptor());
         SqlSession sqlSession = factory.openSession(ExecutorType.BATCH);
         ZxlDao zxlDao = sqlSession.getMapper(ZxlDao.class);
         long s=System.currentTimeMillis();

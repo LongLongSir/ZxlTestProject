@@ -1,7 +1,5 @@
-package com.differ.zxl.jdbc.dao;
+package com.differ.zxl.mybatisjdbc.dao;
 
-import com.differ.zxl.dto.ZxlModel;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 public interface ZxlDao {

@@ -1,12 +1,8 @@
-package com.differ.zxl.jdbc;
+package com.differ.zxl.mybatisjdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class JdbcMain {
 
@@ -26,7 +22,7 @@ public class JdbcMain {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //2、通过驱动管理类获取数据库链接
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/local?serverTimezone=UTC", "root", "123456");
+            connection = DriverManager.getConnection("mybatisjdbc:mysql://localhost:3306/local?serverTimezone=UTC", "root", "123456");
             connection.setAutoCommit(false);
             //3、定义sql语句，?表示占位符
             String sql = "INSERT INTO big_table_test (`field1`, `field2`, `field3`, `field4`, `field5`, `field6`, `field7`, `field8`, `field9`, `field10`, `field11`) \n" +

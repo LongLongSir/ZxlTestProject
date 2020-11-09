@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.differ.zxl.jdbc.dao.ZxlDao">
+<mapper namespace="com.differ.zxl.mybatisjdbc.dao.ZxlDao">
 
     <insert id="insertData">
         INSERT INTO `big_table_test` ( `field1`, `field2`, `field3`, `field4`, `field5`, `field6`, `field7`, `field8`, `field9`, `field10`, `field11`)
