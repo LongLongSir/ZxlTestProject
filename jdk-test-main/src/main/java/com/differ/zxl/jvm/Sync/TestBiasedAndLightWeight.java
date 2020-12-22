@@ -14,6 +14,7 @@ public class TestBiasedAndLightWeight {
         //b.hashCode(); //通过hashCode计算之后，该对象不可偏向，后面进入sync同步块之后直接升级为轻量级锁
         System.out.println(ClassLayout.parseInstance(b).toPrintable());
         long start=System.currentTimeMillis();
+        //加一亿次
         for (int i=0;i<100000000;i++){
             b.incr();
         }

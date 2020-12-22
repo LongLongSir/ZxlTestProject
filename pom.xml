@@ -20,6 +20,9 @@
         <module>jdk-test-main</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
+        <module>spring-project</module>
+        <module>aliyun-ahas</module>
+        <module>netty-project</module>
     </modules>
 
     <dependencyManagement>

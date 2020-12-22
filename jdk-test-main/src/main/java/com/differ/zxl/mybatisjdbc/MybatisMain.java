@@ -23,14 +23,14 @@ public class MybatisMain {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory factory=new SqlSessionFactoryBuilder().build(inputStream);
         //factory.getConfiguration().addInterceptor(new SqlPrintInterceptor());
-        SqlSession sqlSession = factory.openSession(ExecutorType.BATCH);
-        ZxlDao zxlDao = sqlSession.getMapper(ZxlDao.class);
+//        SqlSession sqlSession = factory.openSession(ExecutorType.BATCH);
+//        ZxlDao zxlDao = sqlSession.getMapper(ZxlDao.class);
         long s=System.currentTimeMillis();
         for(int j=0;j<2;j++){
             service.execute(()->{
-                //SqlSession sqlSession = factory.openSession(ExecutorType.BATCH);
+                SqlSession sqlSession = factory.openSession(ExecutorType.BATCH);
                 try{
-                    //ZxlDao zxlDao = sqlSession.getMapper(ZxlDao.class);
+                    ZxlDao zxlDao = sqlSession.getMapper(ZxlDao.class);
                     for(int i=0;i<50;i++){
                         zxlDao.insertData(i);
                         countDownLatch.countDown();
@@ -39,7 +39,7 @@ public class MybatisMain {
                 }catch (Exception e){
                     e.printStackTrace();
                 }finally {
-                    //sqlSession.close();
+                    sqlSession.close();
                 }
             });
         }

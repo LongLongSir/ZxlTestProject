@@ -11,7 +11,7 @@ public class ObjectSyncTest {
         //jvm会延迟偏向锁的开启，大约延迟4s开启偏向锁，因为jvm启动时内部有大量的sync关键字代码块，以及gc线程等
         // 而消除偏向锁很耗性能，在jvm内部直接延迟了偏向锁
         //可通过启动参数（默认是开启偏向锁的，并开启了延迟） -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0  来关闭偏向锁的延迟开启
-        Thread.sleep(4100);
+        Thread.sleep(5000);
 
         JolA a=new JolA();
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
@@ -19,8 +19,18 @@ public class ObjectSyncTest {
 
         synchronized (a){
             System.out.println("synchronized");
-
+            System.out.println(ClassLayout.parseInstance(a).toPrintable());
         }
+
+        Thread t = new Thread(()->{
+            synchronized (a){
+                System.out.println("===================");
+                System.out.println(ClassLayout.parseInstance(a).toPrintable());
+            }
+        });
+
+        t.start();
+        t.join();
 
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
 
