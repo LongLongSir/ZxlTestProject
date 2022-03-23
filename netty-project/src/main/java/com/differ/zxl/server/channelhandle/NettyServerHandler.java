@@ -57,7 +57,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<RequestMessa
         //通道关闭
         ServerManager.removeChannel(ctx.channel().id().asLongText());
         //操作数据库，连接状态为异常（或者删除此实例的数据）
-
+        System.out.println(ctx.channel().id().asLongText()+"通道关闭");
         super.channelInactive(ctx);
     }
     @Override

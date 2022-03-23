@@ -16,7 +16,7 @@ public class LockUpgradeTest {
         Thread t=new Thread(()->{
             b.print();//偏向该线程
             System.out.println("=================");
-            System.out.println(Long.toHexString(Thread.currentThread().getId()));
+            //System.out.println(Long.toHexString(Thread.currentThread().getId()));
         });
         t.start();
         Thread.sleep(7000);

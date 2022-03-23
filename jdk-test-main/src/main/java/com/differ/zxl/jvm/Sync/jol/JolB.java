@@ -11,6 +11,10 @@ public class JolB {
         i++;
     }
 
+    public void incrNoSync(){
+        i++;
+    }
+
     public synchronized void print(){
         System.out.println(ClassLayout.parseInstance(this).toPrintable());
     }

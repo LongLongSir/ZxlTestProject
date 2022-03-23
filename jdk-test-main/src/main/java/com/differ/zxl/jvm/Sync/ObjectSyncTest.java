@@ -20,6 +20,8 @@ public class ObjectSyncTest {
         synchronized (a){
             System.out.println("synchronized");
             System.out.println(ClassLayout.parseInstance(a).toPrintable());
+
+            //System.out.println(Long.toHexString(Thread.currentThread().));
         }
 
         Thread t = new Thread(()->{
