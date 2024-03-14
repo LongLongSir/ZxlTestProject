@@ -10,8 +10,9 @@ public class ZxlModel {
         System.out.println(createBegin);
 
 
-
-
+        String userName="F379EAF3C831B04DE153469D1BEC345E";
+        String s=userName.substring(5,23).toUpperCase();
+        System.out.println(s);
     }
 
 }
